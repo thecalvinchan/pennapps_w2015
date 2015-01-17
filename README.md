@@ -3,7 +3,9 @@ Authorization Code Flow Walkthrough
 Steps to set up the environment
 
 pip install virtualenv venv
+
 source venv/bin/install
+
 pip install -r requirements.txt
 
 
