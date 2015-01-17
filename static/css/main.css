@@ -2,7 +2,7 @@ body {
     background-color: #2eba69;
     padding: 0;
     margin: 0;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 header, .wrapper {
@@ -40,6 +40,25 @@ header h1 {
     font-size: 20px;
     font-weight: 500;
     height: inherit;
+}
+.button {
+    display: block;
+    background-color: #0A6430;
+    height: 60px;
+    line-height: 60px;
+    color: #EEE;
+    margin-bottom: 20px;
+    font-family: "Grandesign Neue Serif";
+    width: 66%;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.bt-twitter {
+    background-color: #2980b9;
 }
 
 .link {

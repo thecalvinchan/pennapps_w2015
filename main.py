@@ -16,7 +16,8 @@ payload = {"client_id":CLIENT_ID, "response_type":"code","redirect_uri":REDIRECT
 
 @app.route('/')
 def index():
-	return redirect("https://accounts.spotify.com/authorize/?client_id=" + CLIENT_ID+ "&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fcallback%2Fq&scope=playlist-modify-public+playlist-modify-private")
+    s_redirect = "https://accounts.spotify.com/authorize/?client_id=" + CLIENT_ID+ "&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fcallback%2Fq&scope=playlist-modify-public+playlist-modify-private"
+    return render_template("index.html", spotify_redirect=s_redirect)
 
 @app.route("/callback/q")
 def callback():
