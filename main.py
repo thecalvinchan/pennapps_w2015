@@ -3,7 +3,7 @@ from flask import Flask, request, redirect, g, render_template
 import requests
 import base64
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="")
 
 #Authorization code flow
 url = "https://accounts.spotify.com/authorize"
@@ -35,8 +35,6 @@ def callback():
 	for playlist in jsoned_playlists['items']:
 		json_array.append(playlist)
 	return render_template("index.html",sorted_array=json_array)
-
-
 
 
 if __name__ == "__main__":
