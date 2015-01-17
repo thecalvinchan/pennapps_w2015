@@ -2,7 +2,9 @@ import json
 from flask import Flask, request, redirect, g, render_template
 import requests
 import base64
-from training import print_emotions
+import json
+import os
+from analysis import *
 
 app = Flask(__name__, static_url_path="")
 
@@ -13,12 +15,25 @@ REDIRECT_URI = "http://127.0.0.1:8080/callback/q"
 SCOPE = "user-modify-private user-modify-public"
 CLIENT_SECRET = "25fcda1a3c154584905e996935cc68b8"
 
-payload = {"client_id":CLIENT_ID, "response_type":"code","redirect_uri":REDIRECT_URI,"scope":SCOPE}
+payload = {"client_id":CLIENT_ID,
+           "response_type":"code",
+           "redirect_uri":REDIRECT_URI,
+           "scope":SCOPE}
 
 @app.route('/')
 def index():
-    s_redirect = "https://accounts.spotify.com/authorize/?client_id=" + CLIENT_ID+ "&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fcallback%2Fq&scope=playlist-modify-public+playlist-modify-private"
+    s_redirect = "https://accounts.spotify.com/authorize/?client_id=" +  \
+    CLIENT_ID+ "&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3 \
+    A8080%2Fcallback%2Fq&scope=playlist-modify-public+playlist-modify-private"
     return render_template("index.html", spotify_redirect=s_redirect)
+
+@app.route('/generate')
+def generate():
+    """Generates a spotify playlist given a twitter dataset"""
+    result = get_playlist_type(["having a great time at PENNAPPS today",
+                             "This is so cool, I love this place!"])
+
+    return render_template("result.html", playlist=result )
 
 
 @app.route("/callback/q")
@@ -37,7 +52,6 @@ def callback():
 	for playlist in jsoned_playlists['items']:
 		json_array.append(playlist)
 	return render_template("index.html",sorted_array=json_array)
-
 
 if __name__ == "__main__":
 	app.run(debug=True,port=8080)
