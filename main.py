@@ -4,6 +4,7 @@ import requests
 import base64
 import json
 import os
+from playlist_result import find_playlist
 from analysis import *
 
 app = Flask(__name__, static_url_path="")
@@ -15,10 +16,8 @@ REDIRECT_URI = "http://127.0.0.1:8080/callback/q"
 SCOPE = "user-modify-private user-modify-public"
 CLIENT_SECRET = "25fcda1a3c154584905e996935cc68b8"
 
-payload = {"client_id":CLIENT_ID,
-           "response_type":"code",
-           "redirect_uri":REDIRECT_URI,
-           "scope":SCOPE}
+payload = {"client_id":CLIENT_ID, "response_type":"code",
+           "redirect_uri":REDIRECT_URI, "scope":SCOPE}
 
 @app.route('/')
 def index():
@@ -30,10 +29,12 @@ def index():
 @app.route('/generate')
 def generate():
     """Generates a spotify playlist given a twitter dataset"""
-    result = get_playlist_type(["having a great time at PENNAPPS today",
-                             "This is so cool, I love this place!"])
+    tweets = ["having a great time at PENNAPPS today",
+              "This is so cool, I love this place!"]
+    result = get_playlist_type(tweets)
+    playlist = find_playlist(result)
 
-    return render_template("result.html", playlist=result )
+    return render_template("result.html", playlist=playlist )
 
 
 @app.route("/callback/q")
