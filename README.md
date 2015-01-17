@@ -1,6 +1,5 @@
-Authorization Code Flow Walkthrough
-=======
 Steps to set up the environment
+=======
 
 pip install virtualenv
 
@@ -15,7 +14,7 @@ pip install -r requirements.txt
 
 
 How to do an authorization code flow, through Flask and Python.
-
+=======
 ##Step 1
 Fill in your credentials in main.py. This includes the CLIENT_ID and CLIENT_SECRET, which is left blank. You can obtain this by going to [Spotify Developers](https://developer.spotify.com/my-applications/#!/).
 
