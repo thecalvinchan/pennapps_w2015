@@ -2,6 +2,7 @@ import json
 from flask import Flask, request, redirect, g, render_template
 import requests
 import base64
+from training import print_emotions
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ payload = {"client_id":CLIENT_ID, "response_type":"code","redirect_uri":REDIRECT
 
 @app.route('/')
 def index():
+	print_emotions()
 	return redirect("https://accounts.spotify.com/authorize/?client_id=" + CLIENT_ID+ "&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fcallback%2Fq&scope=playlist-modify-public+playlist-modify-private")
 
 @app.route("/callback/q")
