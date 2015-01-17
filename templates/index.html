@@ -1,6 +1,26 @@
-<doctype html>
+<!doctype html>
 <html>
-	{% for item in sorted_array%}
-	<p> {{ item }} </p>
-	{% endfor %}
+<head>
+    <meta charset="utf-8">
+    <title>Kimono</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script data-main="js/main" src="bower_components/requirejs/require.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Kimono</h1>
+    </header>
+    <div class="wrapper">
+        <div class="kimono-home">
+            <div>
+                <a class="button bt-twitter">Sign in With Twitter</a>
+                <a class="button" href="{{ spotify_redirect }}">Sign in With Spotify</a>
+            </div>
+            <div class="kimono-visualization">
+            </div>
+        </div>
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="/js/index.js"></script>
+</body>
 </html>

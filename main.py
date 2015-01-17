@@ -4,9 +4,9 @@ import requests
 import base64
 from textblob.classifiers import NaiveBayesClassifier
 import json
+from training import print_emotions
 
-
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="")
 
 #Authorization code flow
 url = "https://accounts.spotify.com/authorize"
@@ -28,15 +28,14 @@ payload = {"client_id":CLIENT_ID,
 
 @app.route('/')
 def index():
-	return redirect("https://accounts.spotify.com/authorize/?client_id=" +
-                    CLIENT_ID + "&response_type=code&redirect_uri=\
-                    http%3A%2F%2F127.0.0.1%3A8080%2Fcallback%2Fq&\
-                    scope=playlist-modify-public+playlist-modify-private")
-
+    s_redirect = "https://accounts.spotify.com/authorize/?client_id=" +  \
+    CLIENT_ID+ "&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3 \
+    A8080%2Fcallback%2Fq&scope=playlist-modify-public+playlist-modify-private"
+    return render_template("index.html", spotify_redirect=s_redirect)
 
 @app.route('/generate')
 def generate():
-""""Generates a spotify playlist given a twitter dataset"""
+    """Generates a spotify playlist given a twitter dataset"""
     return render_template("index.html", )
 
 
@@ -57,7 +56,6 @@ def callback():
 		json_array.append(playlist)
 	return render_template("index.html",sorted_array=json_array)
 
-
 def get_category(training_data, users_tweets):
     """Returns a category based on the training data and user tweets
         using a bayes classifer. """
@@ -67,11 +65,11 @@ def get_category(training_data, users_tweets):
         result = bayes.classify(tweet)
         if result not in results:
             results[result] = 1
-        else
+        else:
             results[result] += 1
 
-        occurence=list(result.values())
-        tags=list(result.keys())
+        occurence=list(results.values())
+        tags=list(results.keys())
 
     return tags[v.index(max(occurence))]
 
@@ -82,7 +80,7 @@ def get_tweets_sentiment(users_tweets):
     text = ""
 
     for tweet in user_tweets:
-        text = text +". " tweet
+        text = text + ". " + tweet
 
     hp_payload["text"] = text
     response = requests.get(HP_URL, params=hp_payload)
