@@ -23,7 +23,7 @@ def get_playlist_type(user_tweets):
     category = get_category(user_tweets)
     sentiment = get_sentiment(user_tweets)
 
-    return sentiment + " " +category
+    return (sentiment, category)
 
 
 def get_category(user_tweets):
