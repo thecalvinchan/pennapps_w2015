@@ -1,2 +1,9 @@
-flask
-requests
+Flask==0.10.1
+itsdangerous==0.24
+Jinja2==2.7.3
+MarkupSafe==0.23
+oauthlib==0.7.2
+python-twitter==2.2
+requests==2.5.1
+requests-oauthlib==0.4.2
+Werkzeug==0.9.6
