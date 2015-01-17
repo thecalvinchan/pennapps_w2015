@@ -1,7 +1,7 @@
 Steps to set up the environment
 =======
 
-pip install virtualenv
+sudo pip install virtualenv
 
 virtualenv venv
 
