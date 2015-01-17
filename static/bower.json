@@ -7,11 +7,12 @@
     "**/*.txt"
   ],
   "dependencies": {
+    "font-awesome": null,
     "jquery": null,
     "requirejs": null,
     "requirejs-plugins": null,
     "backbone": null,
     "underscore": null,
-    "mustache": null
+    "oauth-js": null
   }
 }

@@ -6,8 +6,7 @@ require.config({
                     "../bower_components/jquery/src/jquery"],
         "underscore": "../bower_components/underscore/underscore-min",
         "backbone": "../bower_components/backbone/backbone",
-        "mustache-source": "../bower_components/mustache/mustache.min.js",
-        "mustache": "../bower_components/mustache/wrappers/jquery/mustache.js.post"
+        "hello": "../bower_components/hello/dist/hello.all.min"
     },
     shim: {
         "backbone": {

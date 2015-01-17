@@ -9,6 +9,7 @@ header, .wrapper {
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 10px;
 }
 
 header h1 {
@@ -41,24 +42,54 @@ header h1 {
     font-weight: 500;
     height: inherit;
 }
-.button {
-    display: block;
-    background-color: #0A6430;
-    height: 60px;
-    line-height: 60px;
-    color: #EEE;
-    margin-bottom: 20px;
+.kimono-cta {
     font-family: "Grandesign Neue Serif";
-    width: 66%;
-    position: relative;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -moz-webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    font-size: 30px;
+    font-color: #FFF;
+}
+.kimono-home {
+    text-align: center;
+}
+.kimono-steps {
+    text-align: center;
+}
+.button {
+    display: inline-block;
+    font-size: 50px;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    line-height: 80px;
+    color: #EEE;
+    margin: 20px 10px;
+    font-family: "Grandesign Neue Serif";
+    text-decoration: none;
+    color: #0A6430;
+}
+.button i {
+    -webkit-text-stroke: 2px #0A6430;
+    -moz-text-stroke: 2px #0A6430;
+    text-stroke: 2px #0A6430;
+    color: transparent;
+}
+.button:hover {
+    cursor: pointer;
+}
+.button:hover i {
+    color: #0A6430;
+    -webkit-text-stroke: 2px transparent;
+    -moz-text-stroke: 2px transparent;
+    text-stroke: 2px transparent;
 }
 
-.bt-twitter {
-    background-color: #2980b9;
+.kimono-content {
+    color: #0A6430;
+    font-size: 20px;
+    display: none;
+}
+.kimono-content h2 {
+    font-size: 30px;
+    font-family: "Grandesign Neue Serif";
 }
 
 .link {

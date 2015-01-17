@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Kimono</title>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/css/main.css">
     <script data-main="js/main" src="bower_components/requirejs/require.js"></script>
 </head>
@@ -12,11 +13,23 @@
     </header>
     <div class="wrapper">
         <div class="kimono-home">
-            <div>
-                <a class="button bt-twitter">Sign in With Twitter</a>
-                <a class="button" href="{{ spotify_redirect }}">Sign in With Spotify</a>
+            <div class="kimono-steps">
+                <a class="button kimono-twitter-bt">1. <i data-target="kimono-twitter" class="fa fa-fw fa-twitter "></i></a>
+                <a class="button kimono-spotify-bt" href="{{ spotify_redirect }}">2. <i data-target="kimono-spotify" class="fa fa-fw fa-spotify "></i></a>
+                <a class="button bt-add">3. <i data-target="kimono-add" class="fa fa-fw fa-music"></i></a>
+                </ol>
             </div>
-            <div class="kimono-visualization">
+            <div class="kimono-content" id="kimono-twitter">
+                <h2>Sign in with Twitter</h2>
+                <div id="profile">
+                </div>
+            </div>
+            <div class="kimono-content" id="kimono-spotify">
+                <h2>Sign in with Spotify</h2>
+                <p></p>
+            </div>
+            <div class="kimono-content" id="kimono-add">
+                <h2>Add playlist to spotify account</h2>
             </div>
         </div>
     </div>
