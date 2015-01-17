@@ -1,0 +1,17 @@
+{
+  "name": "kimono",
+  "version": "0.0.1",
+  "main": "css/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "jquery": null,
+    "requirejs": null,
+    "requirejs-plugins": null,
+    "backbone": null,
+    "underscore": null,
+    "mustache": null
+  }
+}
