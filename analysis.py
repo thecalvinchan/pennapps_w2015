@@ -1,4 +1,3 @@
-import twitter
 from textblob.classifiers import NaiveBayesClassifier
 import os
 import json
