@@ -75,6 +75,13 @@ header h1 {
     color: transparent;
 }
 
+.button.current i {
+    -webkit-text-stroke: 2px #eee;
+    -moz-text-stroke: 2px #eee;
+    text-stroke: 2px #eee;
+    color: transparent;
+}
+
 .button.current:hover i {
     color: #0A6430;
     -webkit-text-stroke: 2px transparent;

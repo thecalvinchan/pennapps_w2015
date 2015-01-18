@@ -8,8 +8,6 @@ define([
         el: '.kimono-home',
         events: {
             'submit .kimono-query': 'queryAPI',
-            'mouseenter .kimono-steps .button i': 'showTooltip',
-            'mouseleave .kimono-steps .button i': 'hideTooltip',
             'click .kimono-twitter-bt': 'connectTwitter',
         },
         initialize: function() {
