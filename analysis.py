@@ -5,7 +5,7 @@ import requests
 
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-json_url = os.path.join(SITE_ROOT, "data", "training_data_small.json")
+json_url = os.path.join(SITE_ROOT, "data", "training_data.json")
 data = json.load(open(json_url))
 
 print "loaded up data"
