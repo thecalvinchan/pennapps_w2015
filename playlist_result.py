@@ -6,7 +6,7 @@ playlist_dict = {("positive", "romantic"):"08vPKM3pmoyF6crB2EtASQ",
 					("negative", "romantic"):"3GbdQ33cuuC7fR0xibxir0",
 					("negative", "athletic"):"3ZSsJYq3of05Rmu3ck5tkO",
 					("negative", "hustle"):"2ujjMpFriZ2nayLmrD1Jgl",
-					("negative", "peaceful"):"2swVZYX6SVh5HbmOXEOg5P",}
+					("negative", "peaceful"):"47eBaCmqWxbCEseNmsnIyx",}
 
 def find_playlist(mood):
     """Given a tuple of sentiment and category will return a spotify playlist"""
