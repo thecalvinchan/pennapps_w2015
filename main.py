@@ -44,6 +44,21 @@ def index():
         twitter_login=url_for('login')
     )
 
+@app.route('/spotify')
+def spotify_request():
+    if get_twitter_token():
+        resp = twitter.get('statuses/home_timeline.json','count=10')
+        if resp.status == 200:
+            tweets = resp.data
+            return render_template("spotify.html",
+                spotify_playlist='',
+            )
+        else:
+            tweets = None
+            flash('Unable to load tweets from Twitter. Maybe out of API calls or Twitter is overloaded.')
+    else:
+        return redirect(url_for('index'))
+
 @app.route('/twitterlogin')
 def login():
     if get_twitter_token():
