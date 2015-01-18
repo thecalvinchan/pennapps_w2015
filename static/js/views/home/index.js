@@ -9,7 +9,8 @@ define([
         events: {
             'submit .kimono-query': 'queryAPI',
             'mouseenter .kimono-steps .button i': 'showTooltip',
-            'mouseleave .kimono-steps .button i': 'hideTooltip'
+            'mouseleave .kimono-steps .button i': 'hideTooltip',
+            'click .kimono-twitter-bt': 'connectTwitter',
         },
         initialize: function() {
             hello.init({
@@ -46,6 +47,9 @@ define([
         },
         hideTooltip: function(e) {
             //this.$('.kimono-content').hide();
+        },
+        connectTwitter: function(e) {
+            this.$('.kimono-connect-twitter').submit();
         }
     });
     return exports;
