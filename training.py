@@ -19,7 +19,7 @@ def get_training_data():
     emotions = ["love", "athletic", "hustle", "peaceful"]
 
     for emotion in emotions:
-        results = api.GetSearch(term="#"+emotion, count=10, lang="en")
+        results = api.GetSearch(term="#"+emotion, count=10000, lang="en")
         for result in results:
             data_tuples.append((result.text, emotion))
 
@@ -28,5 +28,5 @@ def get_training_data():
 if __name__ == "__main__":
     data = get_training_data()
 
-    with open('training_data_small.json', 'w') as outfile:
+    with open('training_data.json', 'w') as outfile:
         json.dump(data, outfile)

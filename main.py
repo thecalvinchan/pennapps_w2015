@@ -36,7 +36,7 @@ def index():
 def spotify_request():
     print get_twitter_token()
     if get_twitter_token():
-        resp = twitter.get('statuses/home_timeline.json',data={'count':10})
+        resp = twitter.get('statuses/user_timeline.json',data={'count':10})
         print resp.status
         if resp.status == 200:
             tweets = []
