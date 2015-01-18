@@ -66,26 +66,38 @@ header h1 {
     text-decoration: none;
     color: #0A6430;
 }
+
+
 .button i {
     -webkit-text-stroke: 2px #0A6430;
     -moz-text-stroke: 2px #0A6430;
     text-stroke: 2px #0A6430;
     color: transparent;
 }
-.button:hover {
-    cursor: pointer;
-}
-.button:hover i {
+
+.button.current:hover i {
     color: #0A6430;
     -webkit-text-stroke: 2px transparent;
     -moz-text-stroke: 2px transparent;
     text-stroke: 2px transparent;
 }
 
+.button.disabled i {
+    color: #05361a;
+    -webkit-text-stroke: 0px;
+    -moz-text-stroke: 0px;
+    text-stroke: 0px;
+}
+
+.button.disabled:hover i {
+    -webkit-text-stroke: 0px;
+    -moz-text-stroke: 0px;
+    text-stroke: 0px;
+}
+
 .kimono-content {
     color: #0A6430;
     font-size: 20px;
-    display: none;
 }
 .kimono-content h2 {
     font-size: 30px;

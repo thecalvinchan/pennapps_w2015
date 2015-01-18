@@ -60,14 +60,14 @@ def spotify_request():
 def login():
     if get_twitter_token():
         print get_twitter_token()
-        return redirect(url_for('index'))
+        return redirect(url_for('oauth_authorized'))
     return twitter.authorize(callback=url_for('oauth_authorized',
         next=request.args.get('next') or request.referrer or None))
 
 @app.route('/oauth-authorized')
 @twitter.authorized_handler
 def oauth_authorized(resp):
-    next_url = request.args.get('next') or url_for('index')
+    next_url = request.args.get('next') or url_for('step2')
     if resp is None:
         flash(u'You denied the request to sign in.')
         return redirect(next_url)
@@ -80,6 +80,11 @@ def oauth_authorized(resp):
 
     flash('You were signed in as %s' % resp['screen_name'])
     return redirect(next_url)
+
+@app.route('/step2')
+def step2():
+    return render_template("step2.html", spotify_redirect = "/spotify")
+
 
 @app.route('/generate')
 def generate():
