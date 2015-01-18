@@ -42,12 +42,16 @@ def spotify_request():
             tweets = []
             for tweet in resp.data:
                 tweets.append(tweet['text'])
-            print tweets
-            result = get_playlist_type(tweets)
-            print result
-            playlist = find_playlist(result)
+            if len(tweets) > 0:
+                print tweets
+                result = get_playlist_type(tweets)
+                print result
+                playlist = find_playlist(result)
 
-            return render_template("spotify.html", playlist=playlist)
+                return render_template("spotify.html", playlist=playlist)
+            else:
+                flash('It looks like you got no tweets!')
+                return redirect(url_for('index'))
         else:
             tweets = None
             flash('Unable to load tweets from Twitter. \
