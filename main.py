@@ -14,7 +14,7 @@ app = Flask(__name__, static_url_path="")
 app.secret_key = 'Ab!??%/!jmN]LWX/,?RTasoidjfoiajs'
 oauth = OAuth()
 twitter = oauth.remote_app('twitter',
-    base_url='https://api.twitter.com/1/',
+    base_url='https://api.twitter.com/1.1/',
     request_token_url='https://api.twitter.com/oauth/request_token',
     access_token_url='https://api.twitter.com/oauth/access_token',
     authorize_url='https://api.twitter.com/oauth/authenticate',
@@ -28,21 +28,31 @@ def get_twitter_token(token=None):
 
 @app.route('/')
 def index():
-    return render_template("index.html",twitter_login=url_for('login')
+    return render_template("index.html",twitter_login=url_for('login'),
+        spotify=url_for('spotify_request')
     )
 
 @app.route('/spotify')
 def spotify_request():
+    print get_twitter_token()
     if get_twitter_token():
-        resp = twitter.get('statuses/home_timeline.json','count=10')
+        resp = twitter.get('statuses/home_timeline.json',data={'count':10})
+        print resp.status
         if resp.status == 200:
-            tweets = resp.data
-            return render_template("spotify.html",
-                spotify_playlist='',
-            )
+            tweets = []
+            for tweet in resp.data:
+                tweets.append(tweet['text'])
+            print tweets
+            result = get_playlist_type(tweets)
+            print result
+            playlist = find_playlist(result)
+
+            return render_template("spotify.html", playlist=playlist)
         else:
             tweets = None
-            flash('Unable to load tweets from Twitter. Maybe out of API calls or Twitter is overloaded.')
+            flash('Unable to load tweets from Twitter. \
+                Maybe out of API calls or Twitter is overloaded.')
+            return redirect(url_for('index'))
     else:
         return redirect(url_for('index'))
 

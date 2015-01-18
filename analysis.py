@@ -44,7 +44,7 @@ def get_category(user_tweets):
 def get_sentiment(user_tweets):
     """Uses HP IdolOnDemand to get the aggregate sentiment
      of the users tweets. It returns either 'positive', or 'negative'"""
-    text = ""
+    text = u""
 
     for tweet in user_tweets:
         text = text + ". " + tweet

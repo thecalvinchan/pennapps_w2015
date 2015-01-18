@@ -9,6 +9,10 @@ playlist_dict = {("positive", "romantic"):"08vPKM3pmoyF6crB2EtASQ",
 					("negative", "peaceful"):"2swVZYX6SVh5HbmOXEOg5P",}
 
 def find_playlist(mood):
-	url = "https://play.spotify.com/user/spotify/playlist/" + \
+    """Given a tuple of sentiment and category will return a spotify playlist"""
+    if mood[0] == "neutral":
+        mood = ("positive", mood[1])
+    url = "https://play.spotify.com/user/spotify/playlist/" + \
     playlist_dict.get(mood)
-	return url
+
+    return url
