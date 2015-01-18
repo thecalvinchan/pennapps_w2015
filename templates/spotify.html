@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kimono</title>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/main.css">
+    <script data-main="js/main" src="bower_components/requirejs/require.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Kimono</h1>
+    </header>
+    <div class="wrapper">
+        <div class="kimono-home">
+            <div class="kimono-steps">
+                <a class="button kimono-twitter-bt" href="{{ twitter_login }}">1. <i data-target="kimono-twitter" class="fa fa-fw fa-twitter "></i></a>
+                <a class="button kimono-spotify-bt" href="{{ spotify_redirect }}">2. <i data-target="kimono-spotify" class="fa fa-fw fa-spotify "></i></a>
+                <a class="button bt-add">3. <i data-target="kimono-add" class="fa fa-fw fa-music"></i></a>
+                </ol>
+            </div>
+            <div class="kimono-content" id="kimono-spotify">
+                <h2>Your Recommended Spotify Playlist</h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
