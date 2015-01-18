@@ -7,13 +7,12 @@ import requests
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 json_url = os.path.join(SITE_ROOT, "data", "training_data_small.json")
 data = json.load(open(json_url))
+
 print "loaded up data"
 
 HP_API_KEY = "3e7c9928-ae3b-46bf-9410-51458f3b718c"
 HP_URL = "https://api.idolondemand.com/1/api/sync/analyzesentiment/v1"
 hp_payload = {"language":"eng", "apikey":HP_API_KEY}
-
-
 
 bayes = NaiveBayesClassifier(data)
 
