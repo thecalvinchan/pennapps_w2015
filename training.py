@@ -16,7 +16,7 @@ def get_training_data():
 
     data_tuples = []
 
-    emotions = ["romantic", "athletic", "hustle", "peaceful"]
+    emotions = ["love", "athletic", "hustle", "peaceful"]
 
     for emotion in emotions:
         results = api.GetSearch(term="#"+emotion, count=10, lang="en")
