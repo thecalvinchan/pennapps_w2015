@@ -14,7 +14,7 @@ header, .wrapper {
 
 header h1 {
     text-align: center;
-    font-family: "Grandesign Neue Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Grandesign Neue Serif", "Bree Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 90px;
     color: #EEE;
     text-shadow: 2px 2px 0px #2eba69, 6px 6px 0px #0A6430;
@@ -43,7 +43,7 @@ header h1 {
     height: inherit;
 }
 .kimono-cta {
-    font-family: "Grandesign Neue Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Grandesign Neue Serif", "Bree Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 30px;
     font-color: #FFF;
 }
@@ -62,7 +62,7 @@ header h1 {
     line-height: 80px;
     color: #EEE;
     margin: 20px 10px;
-    font-family: "Grandesign Neue Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Grandesign Neue Serif", "Bree Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     color: #0A6430;
 }
@@ -108,7 +108,7 @@ header h1 {
 }
 .kimono-content h2 {
     font-size: 30px;
-    font-family: "Grandesign Neue Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Grandesign Neue Serif", "Bree Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .link {
